@@ -17,7 +17,7 @@ AI-generated template. This page was authored with AI assistance; review and ada
      Replace <component> throughout. Keep headings in sentence case. -->
 
 This guide shows how to install and verify <component> on your system.
-For background on why this matters, see the [relevant tutorial](./path-to-tutorial).
+For background on why this matters, see the [relevant tutorial][tutorial].
 
 ## Prerequisites
 
@@ -101,12 +101,21 @@ Nix installs packages into a profile directory that must be on `PATH`.
 
 Point readers to related guides, tutorials, or reference material.
 
-- See the [installation tutorial](./path-to-tutorial) for background.
-- Read the <component> reference for the full list of options.
+- See the [installation tutorial][tutorial] for background.
+- Read the [Nix manual][nix-manual] for the full list of options.
 
 ## References
 
 Link to the official sources you cited.
-Prefer [permanent links](https://en.wikipedia.org/wiki/Permalink) where possible.
+Prefer [permanent links](https://en.wikipedia.org/wiki/Permalink) (a specific commit or tag) when citing source code.
 
-- [<component> project](https://example.com)
+- [Nix manual][nix-manual]
+- [Nixpkgs manual][nixpkgs-manual]
+- [<component> project][component-repo]
+
+<!-- Replace the <component> placeholders and point [tutorial] at the specific
+     component tutorial. Use permalinks (commits/tags) when citing source code. -->
+[tutorial]: https://nix.dev/tutorials
+[nix-manual]: https://nix.dev/manual/nix/stable/
+[nixpkgs-manual]: https://nixos.org/manual/nixpkgs/stable/
+[component-repo]: https://github.com/<owner>/<component>
