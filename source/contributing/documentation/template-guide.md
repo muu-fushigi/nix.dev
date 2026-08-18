@@ -18,12 +18,22 @@ AI-generated template. This page was authored with AI assistance; review and ada
      invent from scratch. Keep pure Nix package-manager steps out: link to the
      PM guides/tutorials instead of documenting them here. Replace <component>
      throughout. Headings in sentence case; one sentence per line.
-     In Next steps, chain to the next sequential guide, e.g.
-     [editing your configuration.nix](./edit-configuration.md). Cross-check
-     commands against the NixOS Wiki and nixos.org manuals for parity.
+     Use plain language and state the outcome up front (short sentences, no
+     jargon; tell the reader what they will have at the end).
+     Sequence the page: Prerequisites -> Install/Do -> Configure -> Verify ->
+     Troubleshooting -> Next steps. For NixOS, configuration is declarative: edit
+     configuration.nix and run `nixos-rebuild switch` (or build-vm); verify the
+     result rather than just `<component> --version`. In Next steps, chain to the
+     next sequential guide, e.g. [editing your configuration.nix](./edit-configuration.md).
+     Cross-check commands against the NixOS Wiki and nixos.org manuals for parity.
+     For NixOS guides also cite the NixOS manual: https://nixos.org/manual/nixos/stable/.
+     For ordered procedures use numbered steps (1. 2. 3.) for actions that must
+     run in order. This page is a how-to GUIDE (goal-oriented,
+     sequenced actions, just-in-time explanation), not a tutorial — keep it that way.
      For full authoring rules see [how to write a guide](./write-a-guide.md). -->
 
 This guide shows how to install and verify <component> on your system.
+When you finish, <component> will be installed and ready to use.
 For background on why this matters, see the [relevant tutorial][tutorial].
 
 ## Prerequisites
