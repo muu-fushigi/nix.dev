@@ -68,4 +68,6 @@ diataxis.md
 style-guide.md
 writing-a-tutorial.md
 template-guide.md
+setup.md
+write-a-guide.md
 ```
