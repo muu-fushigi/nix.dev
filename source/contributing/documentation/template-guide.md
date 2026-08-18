@@ -17,7 +17,11 @@ AI-generated template. This page was authored with AI assistance; review and ada
      docs from this skeleton — act on the existing indebted structure, don't
      invent from scratch. Keep pure Nix package-manager steps out: link to the
      PM guides/tutorials instead of documenting them here. Replace <component>
-     throughout. Headings in sentence case; one sentence per line. -->
+     throughout. Headings in sentence case; one sentence per line.
+     In Next steps, chain to the next sequential guide, e.g.
+     [editing your configuration.nix](./edit-configuration.md). Cross-check
+     commands against the NixOS Wiki and nixos.org manuals for parity.
+     For full authoring rules see [how to write a guide](./write-a-guide.md). -->
 
 This guide shows how to install and verify <component> on your system.
 For background on why this matters, see the [relevant tutorial][tutorial].
@@ -107,13 +111,10 @@ Nix installs packages into a profile directory that must be on `PATH`.
 
 ## Next steps
 
-Chain to the next guide in the sequence so the set reads in order.
+Point readers to the next guide in the sequence, plus related tutorials and reference material.
 
-- Continue with [editing your configuration.nix](./edit-configuration.md).
 - See the [installation tutorial][tutorial] for background.
 - Read the [Nix manual][nix-manual] for the full list of options.
-
-Cross-check commands against the NixOS Wiki and nixos.org manuals for parity.
 
 ## References
 
