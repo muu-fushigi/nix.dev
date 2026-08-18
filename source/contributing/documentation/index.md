@@ -67,4 +67,5 @@ resources.md
 diataxis.md
 style-guide.md
 writing-a-tutorial.md
+template-guide.md
 ```
