@@ -20,6 +20,9 @@ Enter the development environment with `nix-shell`, or [set up direnv](https://n
 
 and open a browser at <http://localhost:8080>.
 
+For a full local setup walkthrough, see [setting up your environment](https://nix.dev/contributing/documentation/setup).
+For guidance on writing content, see the [authoring guide](https://nix.dev/contributing/documentation/write-a-guide).
+
 As you make changes, your browser should auto-reload.
 
 To manually test [redirects](./_redirects):
