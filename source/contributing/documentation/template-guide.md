@@ -13,8 +13,11 @@ AI-generated template. This page was authored with AI assistance; review and ada
 
 # How to install <component>
 
-<!-- Copy this file as the seed for a new-user/installation guide.
-     Replace <component> throughout. Keep headings in sentence case. -->
+<!-- Seed for a new-user/installation HOW-TO (NixOS). Rewrite/refresh existing
+     docs from this skeleton — act on the existing indebted structure, don't
+     invent from scratch. Keep pure Nix package-manager steps out: link to the
+     PM guides/tutorials instead of documenting them here. Replace <component>
+     throughout. Headings in sentence case; one sentence per line. -->
 
 This guide shows how to install and verify <component> on your system.
 For background on why this matters, see the [relevant tutorial][tutorial].
@@ -23,6 +26,8 @@ For background on why this matters, see the [relevant tutorial][tutorial].
 
 State what the reader must already have before starting.
 For example, list the supported operating systems and any required accounts.
+
+If the Nix package manager itself is not installed, link to the [install Nix guide][nix-install] rather than documenting the daemon install here.
 
 ```shell-session
 # Confirm Nix is installed and on a supported system
@@ -33,6 +38,9 @@ $ nix --version
 
 Use a `tab-set` when the steps differ per operating system.
 Describe what each command does before showing it.
+
+For NixOS, install the system via the installer ISO / `nixos-rebuild`, not `nix-env`.
+Reserve `nix-env -iA` (below) for the pure-Nix package-manager path and link to PM guides instead of expanding it here.
 
 :::::{tab-set}
 
@@ -99,10 +107,13 @@ Nix installs packages into a profile directory that must be on `PATH`.
 
 ## Next steps
 
-Point readers to related guides, tutorials, or reference material.
+Chain to the next guide in the sequence so the set reads in order.
 
+- Continue with [editing your configuration.nix](./edit-configuration.md).
 - See the [installation tutorial][tutorial] for background.
 - Read the [Nix manual][nix-manual] for the full list of options.
+
+Cross-check commands against the NixOS Wiki and nixos.org manuals for parity.
 
 ## References
 
@@ -115,6 +126,7 @@ Prefer [permanent links](https://en.wikipedia.org/wiki/Permalink) (a specific co
 
 <!-- Replace the <component> placeholders and point [tutorial] at the specific
      component tutorial. Use permalinks (commits/tags) when citing source code. -->
+[nix-install]: https://nix.dev/install-nix
 [tutorial]: https://nix.dev/tutorials
 [nix-manual]: https://nix.dev/manual/nix/stable/
 [nixpkgs-manual]: https://nixos.org/manual/nixpkgs/stable/
