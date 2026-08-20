@@ -6,7 +6,7 @@ myst:
 ---
 
 :::{note}
-AI-generated template. This page was authored with AI assistance; review and adapt it before publishing.
+This template was created with generative AI (GenAI) assistance. Review and adapt it before publishing, and remove or replace this note in any guide you derive from it if you did not use GenAI to write that guide.
 :::
 
 (template-guide)=
