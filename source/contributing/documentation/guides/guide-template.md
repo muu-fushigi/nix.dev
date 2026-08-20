@@ -40,7 +40,7 @@ This template was created with generative AI (GenAI) assistance. Review and adap
      For ordered procedures use numbered steps (1. 2. 3.) for actions that must
      run in order. This page is a how-to GUIDE (goal-oriented,
      sequenced actions, just-in-time explanation), not a tutorial — keep it that way.
-     For full authoring rules see [how to write a guide](./writing-a-guide.md). -->
+     For full authoring rules see [Writing a guide](./writing-a-guide.md). -->
 
 This guide shows how to install and verify <component> on your system.
 When you finish, <component> will be installed and ready to use.

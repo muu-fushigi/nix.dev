@@ -13,9 +13,9 @@ AI-generated companion page. This page was authored with AI assistance; review a
 
 # Using the template
 
-This page is a companion to [the guide template][template]. It installs nothing and contains no example component. Instead it walks the template section by section and explains, from a contributor's point of view, how the template is shaped and how to fill it in.
+This page is a companion to [Guide template][template]. It installs nothing and contains no example component. Instead it walks the template section by section and explains, from a contributor's point of view, how the template is shaped and how to fill it in.
 
-Read this page once to learn the shape, then keep [`guide-template.md`][template] open beside your editor while you write. For the full authoring rules (Diátaxis, linking, plain language), see [how to write a guide][write-a-guide].
+Read this page once to learn the shape, then keep [Guide template][template] open beside your editor while you write. For the full authoring rules (Diátaxis, linking, plain language), see [Writing a guide][write-a-guide].
 
 <!-- REVIEW(tone): Confirm the framing here — is "companion" / "annotated tour" the right voice, or should this read as a stricter "required reading before you copy the template"? -->
 
@@ -29,7 +29,7 @@ A template-derived guide is:
 - **new-user / installation framed** — it assumes the reader wants to get `<component>` working, not to understand how `<component>` works.
 - **NixOS-declarative where it matters** — for NixOS, configuration lives in `configuration.nix` and changes are applied with `nixos-rebuild switch` (or `build-vm`), not by hand.
 
-It is explicitly **not a tutorial**. For the underlying theory or a learning-oriented walkthrough, link to a [tutorial][tutorial] instead of explaining it inline (see [write a guide][write-a-guide] for why).
+It is explicitly **not a tutorial**. For the underlying theory or a learning-oriented walkthrough, link to a [tutorial][tutorial] instead of explaining it inline (see [Writing a guide][write-a-guide] for why).
 
 ## The seed comment
 
@@ -96,7 +96,7 @@ Link to the official sources you cited, using reference-style links defined at t
 
 ## Conventions to keep
 
-The template encodes nix.dev's authoring conventions in its Seed, and [how to write a guide][write-a-guide] explains them in full — sentence case, one sentence per line, numbered steps, plain language, one voice, a humane tone, and examples-first. Read that page for the rationale; in practice, follow the Seed and the style guide and you will meet them.
+The template encodes nix.dev's authoring conventions in its Seed, and [Writing a guide][write-a-guide] explains them in full — sentence case, one sentence per line, numbered steps, plain language, one voice, a humane tone, and examples-first. Read that page for the rationale; in practice, follow the Seed and the style guide and you will meet them.
 
 ## Filling it in: the workflow
 
@@ -105,21 +105,21 @@ The template encodes nix.dev's authoring conventions in its Seed, and [how to wr
 3. Replace `<component>` throughout the file.
 4. Fill each section following the Seed's rules, not from memory.
 5. Wire the new page into the relevant `toctree` / index.
-6. Run the local build (see [contributor setup][setup] and [write a guide → Pass the automated checks][write-a-guide]) and fix every failure before opening your PR.
+6. Run the local build (see [contributor setup][setup] and [Writing a guide: Pass the automated checks][write-a-guide-checks]) and fix every failure before opening your PR.
 
 <!-- REVIEW(tone): Step 5 says "wire into the relevant toctree / index" — is that precise enough, or should it name the exact index file contributors must edit? -->
 
 ## Automated checks you must pass
 
-The docs enforce CI checks that fail the build on warnings. [how to write a guide][write-a-guide] describes them and the current configuration in full (section "Pass the automated checks").
+The docs enforce CI checks that fail the build on warnings. [Writing a guide: Pass the automated checks][write-a-guide-checks] describes them and the current configuration in full.
 
 The one rule that most often breaks a template-derived guide: **never link to a `.md` file that does not exist in the repository.** The Sphinx build runs with `-W`, so a broken internal link fails the build. Link only to existing docs, or use full `https://` URLs for external resources.
 
 ## Next steps
 
-- Read [how to write a guide][write-a-guide] for the full authoring rules.
+- Read [Writing a guide][write-a-guide] for the full authoring rules.
 - Set up a local build environment with the [nix.dev contributor documentation][nix-dev-contributor-guide] so you can run `vale` and the Sphinx build yourself.
-- Copy [the template][template] and start your guide.
+- Copy [Guide template][template] and start your guide.
 
 ## References
 
@@ -130,6 +130,7 @@ The one rule that most often breaks a template-derived guide: **never link to a 
 
 [template]: ./guide-template.md
 [write-a-guide]: ./writing-a-guide.md
+[write-a-guide-checks]: ./writing-a-guide.md#pass-the-automated-checks
 [style-guide]: ../style-guide.md
 [diataxis]: ../diataxis.md
 [setup]: ../setup.md

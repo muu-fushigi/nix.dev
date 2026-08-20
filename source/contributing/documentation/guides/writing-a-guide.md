@@ -20,7 +20,7 @@ When you finish, you will have a complete, build-passing guide that follows the 
 
 Read the documents this guide depends on so your new page matches the project's conventions.
 
-- Copy the [template][template] as the seed for your page.
+- Copy the [Guide template][template] as the seed for your page.
 - Skim the [documentation style guide][style-guide] for voice, links, and one-sentence-per-line rules.
 - Read the [Diátaxis overview][diataxis] so you keep your page in the right category.
 
@@ -36,7 +36,7 @@ For example, if your guide installs a tool, point readers to the relevant tutori
 
 ## Start from the template
 
-Always begin from the [template][template] rather than a blank file.
+Always begin from the [Guide template][template] rather than a blank file.
 The template encodes the required shape: a short outcome statement, `Prerequisites`, the task sections, `Troubleshooting`, `Next steps`, and `References`.
 
 Keep these conventions from the template:
@@ -169,6 +169,7 @@ $ nix --version
 nix (Nix) 2.11.0
 ```
 
+(pass-the-automated-checks)=
 ## Pass the automated checks
 
 The documentation has several automated checks that run in CI.
@@ -187,7 +188,7 @@ Only link to existing docs, or use full `https://` URLs for external resources.
 
 ## Next steps
 
-- Copy and adapt the [template][template] for your new guide.
+- Copy and adapt the [Guide template][template] for your new guide.
 - Set up a local build environment using the [nix.dev contributor documentation][nix-dev-contributor-guide] so you can run `vale` and the Sphinx build yourself.
 
 ## References
