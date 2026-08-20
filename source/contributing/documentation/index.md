@@ -67,8 +67,8 @@ resources.md
 diataxis.md
 style-guide.md
 writing-a-tutorial.md
-template-guide.md
+guides/guide-template.md
 setup.md
-write-a-guide.md
-use-this-template.md
+guides/writing-a-guide.md
+guides/using-the-template.md
 ```

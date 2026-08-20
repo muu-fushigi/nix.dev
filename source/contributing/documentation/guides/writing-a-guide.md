@@ -197,9 +197,9 @@ Only link to existing docs, or use full `https://` URLs for external resources.
 - [NixOS manual][nixos-manual]
 - [nix.dev contributor guide][nix-dev-contributor-guide]
 
-[template]: ./template-guide.md
-[style-guide]: ./style-guide.md
-[diataxis]: ./diataxis.md
+[template]: ./guide-template.md
+[style-guide]: ../style-guide.md
+[diataxis]: ../diataxis.md
 [tutorial]: https://nix.dev/tutorials
 [nix-install]: https://nix.dev/install-nix
 [nix-manual]: https://nix.dev/manual/nix/stable/

@@ -9,7 +9,7 @@ myst:
 This template was created with generative AI (GenAI) assistance. Review and adapt it before publishing, and remove or replace this note in any guide you derive from it if you did not use GenAI to write that guide.
 :::
 
-(template-guide)=
+(guide-template)=
 
 # How to install <component>
 
@@ -40,7 +40,7 @@ This template was created with generative AI (GenAI) assistance. Review and adap
      For ordered procedures use numbered steps (1. 2. 3.) for actions that must
      run in order. This page is a how-to GUIDE (goal-oriented,
      sequenced actions, just-in-time explanation), not a tutorial — keep it that way.
-     For full authoring rules see [how to write a guide](./write-a-guide.md). -->
+     For full authoring rules see [how to write a guide](./writing-a-guide.md). -->
 
 This guide shows how to install and verify <component> on your system.
 When you finish, <component> will be installed and ready to use.

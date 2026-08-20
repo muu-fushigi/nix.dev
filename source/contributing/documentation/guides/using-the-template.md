@@ -1,7 +1,7 @@
 ---
 myst:
   html_meta:
-    "description lang=en": "How to use the nix.dev guide template: a contributor's annotated tour of template-guide.md"
+    "description lang=en": "How to use the nix.dev guide template: a contributor's annotated tour of guide-template.md"
     "keywords": "template, guide, how-to, contributing, nix.dev"
 ---
 
@@ -9,19 +9,19 @@ myst:
 AI-generated companion page. This page was authored with AI assistance; review and adapt it before publishing.
 :::
 
-(use-this-template)=
+(using-the-template)=
 
 # How to use this template
 
 This page is a companion to [the guide template][template]. It installs nothing and contains no example component. Instead it walks the template section by section and explains, from a contributor's point of view, how the template is shaped and how to fill it in.
 
-Read this page once to learn the shape, then keep [`template-guide.md`][template] open beside your editor while you write. For the full authoring rules (Diátaxis, linking, plain language), see [how to write a guide][write-a-guide].
+Read this page once to learn the shape, then keep [`guide-template.md`][template] open beside your editor while you write. For the full authoring rules (Diátaxis, linking, plain language), see [how to write a guide][write-a-guide].
 
 <!-- REVIEW(tone): Confirm the framing here — is "companion" / "annotated tour" the right voice, or should this read as a stricter "required reading before you copy the template"? -->
 
 ## What the template is for
 
-The template (`template-guide.md`) is a reusable skeleton for a **new-user, installation-style HOW-TO** on nix.dev. It exists so every new guide starts from the same shape and the same conventions, instead of from a blank file.
+The template (`guide-template.md`) is a reusable skeleton for a **new-user, installation-style HOW-TO** on nix.dev. It exists so every new guide starts from the same shape and the same conventions, instead of from a blank file.
 
 A template-derived guide is:
 
@@ -33,7 +33,7 @@ It is explicitly **not a tutorial**. For the underlying theory or a learning-ori
 
 ## The seed comment
 
-Near the top of `template-guide.md` is an HTML comment beginning `<!-- Seed ... -->`. It does not render in the published docs, but it carries the rules the template encodes:
+Near the top of `guide-template.md` is an HTML comment beginning `<!-- Seed ... -->`. It does not render in the published docs, but it carries the rules the template encodes:
 
 - replace `<component>` throughout,
 - keep pure-Nix package-manager steps out (link to the PM guides instead of documenting them),
@@ -108,7 +108,7 @@ These come straight from the Seed and from [write a guide][write-a-guide]:
 
 ## Filling it in: the workflow
 
-1. Copy `template-guide.md` to your new guide's file.
+1. Copy `guide-template.md` to your new guide's file.
 2. Read the `<!-- Seed -->` comment at the top.
 3. Replace `<component>` throughout the file.
 4. Fill each section following the Seed's rules, not from memory.
@@ -128,7 +128,7 @@ The docs have CI checks that fail the build on warnings. From a template-user's 
 
 Never link to a `.md` file that does not exist in the repository. Link only to existing docs, or use full `https://` URLs for external resources.
 
-<!-- REVIEW(accuracy): These check descriptions are copied from write-a-guide.md. Confirm they still match the current CI configuration before publishing this page. -->
+<!-- REVIEW(accuracy): These check descriptions are copied from writing-a-guide.md. Confirm they still match the current CI configuration before publishing this page. -->
 
 ## Next steps
 
@@ -143,11 +143,11 @@ Never link to a `.md` file that does not exist in the repository. Link only to e
 - [NixOS manual][nixos-manual]
 - [nix.dev contributor guide][nix-dev-contributor-guide]
 
-[template]: ./template-guide.md
-[write-a-guide]: ./write-a-guide.md
-[style-guide]: ./style-guide.md
-[diataxis]: ./diataxis.md
-[setup]: ./setup.md
+[template]: ./guide-template.md
+[write-a-guide]: ./writing-a-guide.md
+[style-guide]: ../style-guide.md
+[diataxis]: ../diataxis.md
+[setup]: ../setup.md
 [tutorial]: https://nix.dev/tutorials
 [nix-install]: https://nix.dev/install-nix
 [nix-manual]: https://nix.dev/manual/nix/stable/
