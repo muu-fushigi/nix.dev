@@ -16,10 +16,20 @@ This template was created with generative AI (GenAI) assistance. Review and adap
 <!-- Seed for a new-user/installation HOW-TO (NixOS). Rewrite/refresh existing
      docs from this skeleton — act on the existing indebted structure, don't
      invent from scratch. Keep pure Nix package-manager steps out: link to the
-     PM guides/tutorials instead of documenting them here. Replace <component>
+     PM guides/tutorials instead of documenting them here (this also keeps one
+     voice and avoids duplicated, drifting instructions). Replace <component>
      throughout. Headings in sentence case; one sentence per line.
      Use plain language and state the outcome up front (short sentences, no
      jargon; tell the reader what they will have at the end).
+     Lead with the minimal working steps — examples first, progressive
+     disclosure: introduce a concept only when the reader needs it to act, not
+     up front. Keep one voice across every guide: friendly, direct, and
+     competent; address the reader as 'you'. Be humane: if a step needs
+     justification, link to the relevant tutorial for the why rather than
+     explaining it here; only add a one-line note when it prevents a concrete
+     mistake. Present optional steps as recommendations with an escape
+     hatch (e.g. 'if you don't have X, skip this'); keep troubleshooting neutral
+     and non-blaming (state the symptom and the fix, never 'you did it wrong').
      Sequence the page: Prerequisites -> Install/Do -> Configure -> Verify ->
      Troubleshooting -> Next steps. For NixOS, configuration is declarative: edit
      configuration.nix and run `nixos-rebuild switch` (or build-vm); verify the

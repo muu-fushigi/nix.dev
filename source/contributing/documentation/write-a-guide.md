@@ -66,7 +66,7 @@ Pure Nix package-manager topics belong in package-manager guides, not in NixOS g
 If your page would otherwise document installing the Nix daemon, link to the [install Nix guide][nix-install] instead of repeating those steps.
 
 NixOS guides should cover `configuration.nix` and declarative system changes, and must not duplicate the package-manager install steps.
-This keeps each page focused and avoids divergent, conflicting instructions.
+This keeps each page focused, maintains one voice across the manuals, and avoids divergent, conflicting instructions.
 
 ## Chain the next steps in sequence
 
@@ -92,6 +92,18 @@ Use numbered steps for ordered procedures.
 1. Describe what the reader will do.
 2. Show the command or configuration.
 3. Show how to verify the result.
+
+## Write with one voice and a humane tone
+
+nix.dev exists to ease onboarding, so every guide should sound like the same friendly, competent helper. Address the reader directly as "you", avoid baby-talk, and never make the reader feel inexperienced.
+
+- Keep the guide step-focused. For the *why* behind a step (concepts, rationale), link to the relevant [tutorial][tutorial] rather than explaining it inline — a how-to teaches actions, not theory. Add only a one-line note when it prevents a concrete mistake.
+- Present optional steps as recommendations and give an escape hatch, for example "if you don't have a mobile number, skip this step". Never phrase them as demands.
+- Keep troubleshooting neutral and non-blaming: state the symptom and the fix factually. Do not write "you did it wrong".
+
+## Lead with examples (progressive disclosure)
+
+Start with the minimal working steps so the reader reaches a result quickly, then explain only what they need to act. Introduce concepts just in time, not up front. This matches the project's onboarding goals and keeps guides approachable.
 
 ## Use the authoring scaffolds
 

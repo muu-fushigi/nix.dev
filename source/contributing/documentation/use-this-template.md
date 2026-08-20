@@ -102,6 +102,9 @@ These come straight from the Seed and from [write a guide][write-a-guide]:
 - **One sentence per line** — MyST/Markdown treats one sentence per line as a soft wrap; it keeps diffs clean and reviews easy.
 - **Numbered steps** (`1.` `2.` `3.`) for procedures that must run in order.
 - **Plain language, imperative voice, short sentences**, no jargon; state the outcome before the first procedure.
+- **One voice** — friendly, direct, competent; address the reader as "you". This serves nix.dev's onboarding goal of not making new users feel inexperienced.
+- **Humane tone** — link to a tutorial for the *why*; keep the guide step-focused (only a one-line mistake-preventing note inline); optional steps are recommendations with an escape hatch; troubleshooting is neutral and non-blaming.
+- **Examples first / progressive disclosure** — lead with the working steps; explain a concept only when the reader needs it to act.
 
 ## Filling it in: the workflow
 
