@@ -11,7 +11,7 @@ This template was created with generative AI (GenAI) assistance. Review and adap
 
 (guide-template)=
 
-# How to install <component>
+# Guide template
 
 <!-- Seed for a new-user/installation HOW-TO (NixOS). Rewrite/refresh existing
      docs from this skeleton — act on the existing indebted structure, don't

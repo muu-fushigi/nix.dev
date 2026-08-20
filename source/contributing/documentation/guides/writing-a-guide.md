@@ -9,9 +9,9 @@ myst:
 AI-generated content. This page was authored with AI assistance; review and adapt it before publishing.
 :::
 
-(write-a-guide)=
+(writing-a-guide)=
 
-# How to write a guide
+# Writing a guide
 
 This guide shows how to author a new-user or installation HOW-TO for nix.dev, starting from the existing template.
 When you finish, you will have a complete, build-passing guide that follows the project's conventions.

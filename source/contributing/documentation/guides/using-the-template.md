@@ -11,7 +11,7 @@ AI-generated companion page. This page was authored with AI assistance; review a
 
 (using-the-template)=
 
-# How to use this template
+# Using the template
 
 This page is a companion to [the guide template][template]. It installs nothing and contains no example component. Instead it walks the template section by section and explains, from a contributor's point of view, how the template is shaped and how to fill it in.
 
@@ -96,15 +96,7 @@ Link to the official sources you cited, using reference-style links defined at t
 
 ## Conventions to keep
 
-These come straight from the Seed and from [write a guide][write-a-guide]:
-
-- **Sentence case** headings (e.g. `## Install <component>`, not `## Install the Component`).
-- **One sentence per line** — MyST/Markdown treats one sentence per line as a soft wrap; it keeps diffs clean and reviews easy.
-- **Numbered steps** (`1.` `2.` `3.`) for procedures that must run in order.
-- **Plain language, imperative voice, short sentences**, no jargon; state the outcome before the first procedure.
-- **One voice** — friendly, direct, competent; address the reader as "you". This serves nix.dev's onboarding goal of not making new users feel inexperienced.
-- **Humane tone** — link to a tutorial for the *why*; keep the guide step-focused (only a one-line mistake-preventing note inline); optional steps are recommendations with an escape hatch; troubleshooting is neutral and non-blaming.
-- **Examples first / progressive disclosure** — lead with the working steps; explain a concept only when the reader needs it to act.
+The template encodes nix.dev's authoring conventions in its Seed, and [how to write a guide][write-a-guide] explains them in full — sentence case, one sentence per line, numbered steps, plain language, one voice, a humane tone, and examples-first. Read that page for the rationale; in practice, follow the Seed and the style guide and you will meet them.
 
 ## Filling it in: the workflow
 
@@ -119,16 +111,9 @@ These come straight from the Seed and from [write a guide][write-a-guide]:
 
 ## Automated checks you must pass
 
-The docs have CI checks that fail the build on warnings. From a template-user's perspective:
+The docs enforce CI checks that fail the build on warnings. [how to write a guide][write-a-guide] describes them and the current configuration in full (section "Pass the automated checks").
 
-- `extractable_code_block` only runs blocks explicitly marked to run; template placeholder blocks are safe as examples.
-- `vale` runs at `MinAlertLevel = suggestion`, so it reports warnings and suggestions, not just errors.
-- `editorconfig` requires Unix line endings (`lf`), a final newline, and no trailing whitespace.
-- The Sphinx build uses `-W`, which turns warnings into errors. It **fails on missing documentation cross-references**, so a broken internal `.md` link breaks the build.
-
-Never link to a `.md` file that does not exist in the repository. Link only to existing docs, or use full `https://` URLs for external resources.
-
-<!-- REVIEW(accuracy): These check descriptions are copied from writing-a-guide.md. Confirm they still match the current CI configuration before publishing this page. -->
+The one rule that most often breaks a template-derived guide: **never link to a `.md` file that does not exist in the repository.** The Sphinx build runs with `-W`, so a broken internal link fails the build. Link only to existing docs, or use full `https://` URLs for external resources.
 
 ## Next steps
 
