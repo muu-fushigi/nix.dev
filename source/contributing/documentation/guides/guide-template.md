@@ -9,6 +9,8 @@ myst:
 This template was created with generative AI (GenAI) assistance. Review and adapt it before publishing, and remove or replace this note in any guide you derive from it if you did not use GenAI to write that guide.
 :::
 
+<!-- REVIEW(consistency): The GenAI disclosure wording here ("created with generative AI (GenAI) assistance ... remove or replace this note ... if you did not use GenAI") differs from writing-a-guide.md ("AI-generated content. This page was authored with AI assistance"). Align the disclosure phrasing across all three guide docs so contributors see one canonical note. -->
+
 (guide-template)=
 
 # Guide template
@@ -40,7 +42,8 @@ This template was created with generative AI (GenAI) assistance. Review and adap
      For ordered procedures use numbered steps (1. 2. 3.) for actions that must
      run in order. This page is a how-to GUIDE (goal-oriented,
      sequenced actions, just-in-time explanation), not a tutorial — keep it that way.
-     For full authoring rules see [Writing a guide](./writing-a-guide.md). -->
+      For full authoring rules see [Writing a guide](./writing-a-guide.md). -->
+<!-- REVIEW(consistency): This seed comment and the body cross-link to ./edit-configuration.md, ./writing-a-guide.md, and the style guide. After the restructure (guide contributor files moved into guides/, titles aligned to filenames, link labels normalised to page titles), verify each cross-reference target still exists and that its link label matches the target page title. -->
 
 This guide shows how to install and verify <component> on your system.
 When you finish, <component> will be installed and ready to use.
@@ -59,6 +62,8 @@ $ nix --version
 ```
 
 ## Install <component>
+
+<!-- REVIEW(scope): The Linux and macOS tab-items below both show the identical `nix-env -iA nixpkgs.<component>` command. Confirm whether the steps genuinely differ per OS; if they don't, the tab-set is misleading and should collapse to a single block, or the macOS path should show its real divergence. -->
 
 Use a `tab-set` when the steps differ per operating system.
 Describe what each command does before showing it.
@@ -112,6 +117,8 @@ Show the expected output of the check command.
 $ <component> --version
 <component> 1.0.0
 ```
+
+<!-- REVIEW(accuracy): The seed comment (lines ~37) instructs contributors to "verify the result rather than just `<component> --version`", but this Verify section only shows `<component> --version` and its expected output. For NixOS declarative guides the verification must check the actual applied result (e.g. service is running / config took effect), not merely the binary version. Reconcile the template body with the seed instruction. -->
 
 :::{tip}
 Open a new terminal first if the command is not found, so shell caches are refreshed.

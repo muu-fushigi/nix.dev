@@ -9,6 +9,8 @@ myst:
 AI-generated content. This page was authored with AI assistance; review and adapt it before publishing.
 :::
 
+<!-- REVIEW(consistency): The GenAI disclosure here ("AI-generated content. This page was authored with AI assistance") differs from guide-template.md ("created with generative AI (GenAI) assistance ... remove or replace this note ... if you did not use GenAI"). Align the disclosure phrasing across all three guide docs so contributors see one canonical note. -->
+
 (writing-a-guide)=
 
 # Writing a guide
@@ -93,6 +95,8 @@ Use numbered steps for ordered procedures.
 2. Show the command or configuration.
 3. Show how to verify the result.
 
+<!-- REVIEW(accuracy): For NixOS declarative guides the "verify the result" step must confirm the applied configuration took effect (e.g. after `nixos-rebuild switch`, check the running service / actual state), not just run `<component> --version`. Consider stating this explicitly so contributors don't ship a version-only check. -->
+
 ## Write with one voice and a humane tone
 
 nix.dev exists to ease onboarding, so every guide should sound like the same friendly, competent helper. Address the reader directly as "you", avoid baby-talk, and never make the reader feel inexperienced.
@@ -109,6 +113,8 @@ Start with the minimal working steps so the reader reaches a result quickly, the
 
 The project's MyST setup supports several scaffolds.
 Use them to keep pages consistent and readable.
+
+<!-- REVIEW(scope): The tab-set example below shows the identical `nix-env -iA nixpkgs.example` command for both Linux and macOS. Confirm whether the steps genuinely differ per OS; if they don't, the tab-set is misleading and should collapse, or the macOS step should show its real divergence (e.g. nix-darwin path). -->
 
 Use a `tab-set` when steps differ per operating system.
 
@@ -164,10 +170,14 @@ Nix installs packages into a profile directory that must be on `PATH`.
 
 Use `shell-session` for terminal output so copy-button and prompts render correctly.
 
+<!-- REVIEW(accuracy): The example output `nix (Nix) 2.11.0` is a fixed version claim. Confirm it still matches a current/relevant Nix release, or replace with a placeholder like `<version>` so the example doesn't go stale. -->
+
 ```shell-session
 $ nix --version
 nix (Nix) 2.11.0
 ```
+
+<!-- REVIEW(consistency): This exact `(pass-the-automated-checks)=` anchor is deep-linked from using-the-template.md via `[write-a-guide-checks]: ./writing-a-guide.md#pass-the-automated-checks`. If this heading or anchor is renamed, that deep link breaks the Sphinx `-W` build. Keep the anchor name locked or update the source link in lockstep. -->
 
 (pass-the-automated-checks)=
 ## Pass the automated checks

@@ -9,15 +9,19 @@ myst:
 AI-generated companion page. This page was authored with AI assistance; review and adapt it before publishing.
 :::
 
+<!-- REVIEW(tone): the AI-generated note at the top — is this label right for a meta page about the template, or should it be removed/shortened since it describes the template rather than a derived guide? -->
+
 (using-the-template)=
 
 # Using the template
 
-This page is a companion to [Guide template][template]. It installs nothing and contains no example component. Instead it walks the template section by section and explains, from a contributor's point of view, how the template is shaped and how to fill it in.
+This page is meta-commentary about [Guide template][template]. It installs nothing and names no real package. It walks the template section by section and explains, from a contributor's point of view, what each part is for and the placeholders it uses.
 
 Read this page once to learn the shape, then keep [Guide template][template] open beside your editor while you write. For the full authoring rules (Diátaxis, linking, plain language), see [Writing a guide][write-a-guide].
 
 <!-- REVIEW(tone): Confirm the framing here — is "companion" / "annotated tour" the right voice, or should this read as a stricter "required reading before you copy the template"? -->
+
+The template stays generic on purpose: every concrete thing a finished guide would name is written as the literal placeholder `<component>`. Do not substitute a real package or command here — this page documents the template, it is not a filled-in example guide, and there is no worked example with real commands.
 
 ## What the template is for
 
@@ -31,9 +35,26 @@ A template-derived guide is:
 
 It is explicitly **not a tutorial**. For the underlying theory or a learning-oriented walkthrough, link to a [tutorial][tutorial] instead of explaining it inline (see [Writing a guide][write-a-guide] for why).
 
-## The seed comment
+## Front matter
 
-Near the top of `guide-template.md` is an HTML comment beginning `<!-- Seed ... -->`. It does not render in the published docs, but it carries the rules the template encodes:
+The template opens with MyST `html_meta` for `description` and `keywords`:
+
+```yaml
+---
+myst:
+  html_meta:
+    "description lang=en": "Template: how to write a new-user installation guide for nix.dev"
+    "keywords": "template, guide, installation, nix.dev"
+---
+```
+
+<!-- REVIEW(scope): the front-matter guidance — should contributors copy the html_meta block verbatim and only swap the description, or also adjust the keywords per component? -->
+
+Copy this block into your new guide and swap the `description` to match your component. Keep the `keywords` convention aligned with the other guides. These fields feed search and site previews, so they are required, not optional.
+
+## Seed comment
+
+Immediately after the front matter and before the title, the template carries an HTML comment beginning `<!-- Seed ... -->`. It does not render in the published docs, but it is the contract the template encodes:
 
 - replace `<component>` throughout,
 - keep pure-Nix package-manager steps out (link to the PM guides instead of documenting them),
@@ -44,59 +65,69 @@ Near the top of `guide-template.md` is an HTML comment beginning `<!-- Seed ... 
 - in `Next steps`, chain to the next sequential guide,
 - cross-check commands against the NixOS Wiki and nixos.org manuals for parity.
 
-Read the Seed while you draft. It is the contract between the template and your finished guide.
-
 <!-- REVIEW(accuracy): Confirm whether a contributor should KEEP the Seed comment in the published guide or strip it. The template ships with it; this page currently tells contributors to "read it while you draft" but does not state the final disposition. -->
 
-## Section-by-section walkthrough
+Read the Seed while you draft. It describes the template's intent; your finished guide should satisfy every rule it lists.
 
-### Front matter
+## Outcome statement
 
-The page opens with MyST `html_meta` for `description` and `keywords`. Keep these: they feed search and site previews. Copy the template's block and swap the description to match your component.
-
-### Outcome statement
-
-(lines ~35-37 of the template)
-
-The first prose after the title states, in plain language, what the reader will have at the end:
+The template's first prose after the title states, in plain language, what the reader will have at the end:
 
 > This guide shows how to install and verify `<component>` on your system. When you finish, `<component>` will be installed and ready to use.
 
-State the outcome up front. Then link to the relevant tutorial for background rather than re-teaching it.
+It then links to the relevant [tutorial][tutorial] for background rather than re-teaching it. Keep this shape: state the outcome up front, then point to the tutorial for the *why*.
 
-### Prerequisites
+<!-- REVIEW(consistency): confirm the <component> placeholder convention is clear — it is a literal string to replace everywhere, including headings, prose, and code blocks (e.g. `nixpkgs.<component>`). -->
 
-State what the reader must already have (supported OS, required accounts). Critically, **do not document the Nix daemon install here** — if Nix itself is not installed, link to the [install Nix guide][nix-install] instead.
+## Prerequisites
 
-### Install `<component>`
+The template's `## Prerequisites` section tells the reader what they must already have (supported OS, required accounts). Critically, **it does not document the Nix daemon install** — if Nix itself is not installed, the template links to the [install Nix guide][nix-install] instead of repeating those steps. Keep that rule: pure-Nix package-manager setup stays in the PM guides.
 
-Use a `tab-set` when the steps differ per operating system. For NixOS, install via the installer ISO / `nixos-rebuild`, not `nix-env`. Reserve the pure-Nix `nix-env -iA` path for the package-manager guides and link to them rather than expanding it inline.
+## Install `<component>`
 
-### Configure `<component>`
+The template's `## Install <component>` section uses a `tab-set` when the steps differ per operating system. For NixOS, install via the installer ISO / `nixos-rebuild`, not `nix-env`. The template reserves the pure-Nix `nix-env -iA nixpkgs.<component>` path for the package-manager path and points readers to the PM guides rather than expanding it inline.
 
-Show the minimal configuration needed to use the component, and explain each option you set so readers do not copy commands blindly. For NixOS this means editing `configuration.nix`.
+<!-- REVIEW(accuracy): the template uses a tab-set for Linux/macOS with identical nix-env commands; confirm the OS-specific guidance is what contributors should expect, and that NixOS is intentionally handled separately. -->
 
-### Verify the installation
+The `<component>` placeholder appears in the heading and in the derivation name `nixpkgs.<component>`, so replacing it propagates to both.
 
-Confirm the install succeeded so readers catch mistakes early, and show the expected output. For NixOS, verify the *result* of the rebuild, not just a version string.
+## Configure `<component>`
 
-### Troubleshooting
+The template's `## Configure <component>` section shows the minimal configuration needed to use `<component>` and explains each option so readers do not copy commands blindly. For NixOS this means editing `configuration.nix`. The example command uses the placeholder directly:
 
-List the most common failure and its fix. Use a `dropdown` for deeper detail that would distract from the main flow.
+```shell-session
+$ <component> config set example enabled
+```
 
-### Next steps
+with a note telling the reader to replace `example` with the real option name.
 
-Point readers to the next guide in the sequence, plus related tutorials and reference material. This is how readers flow from one task to the next.
+## Verify the installation
 
-### References
+The template's `## Verify the installation` section confirms the install succeeded and shows expected output, using `<component> --version` as the placeholder check.
 
-Link to the official sources you cited, using reference-style links defined at the bottom of the file. Prefer [permanent links](https://en.wikipedia.org/wiki/Permalink) (a specific commit or tag) when citing source code so citations do not rot.
+<!-- REVIEW(accuracy): for NixOS the template says verify the result of nixos-rebuild switch rather than <component> --version; confirm the exact verify approach (rebuild result vs version string) contributors should follow. -->
+
+For NixOS, the Seed instructs you to verify the *result* of the rebuild, not just a version string. The placeholder lets you decide the right check for your component.
+
+## Troubleshooting
+
+The template's `## Troubleshooting` section lists the most common failure and its fix, and uses a `dropdown` for deeper detail that would distract from the main flow. It references `<component>` in the symptom (`<component>` not found) so the placeholder stays consistent.
+
+## Next steps
+
+The template's `## Next steps` section points readers to the next guide in the sequence plus related tutorials and reference material. The Seed tells you to chain to the next sequential guide (for example, editing `configuration.nix`) so readers flow from one task to the next.
+
+## References
+
+The template's `## References` section links to the official sources it cited, using reference-style links defined at the bottom of the file, and prefers [permanent links](https://en.wikipedia.org/wiki/Permalink) (a specific commit or tag) when citing source code. It lists `[Nix manual]`, `[Nixpkgs manual]`, and `[<component> project][component-repo]`.
 
 <!-- REVIEW(accuracy): The template's References section links [component-repo] to github.com/<owner>/<component>. Confirm the exact placeholder shape contributors should expect, and whether a "References" section is always required or optional for short guides. -->
 
 ## Conventions to keep
 
-The template encodes nix.dev's authoring conventions in its Seed, and [Writing a guide][write-a-guide] explains them in full — sentence case, one sentence per line, numbered steps, plain language, one voice, a humane tone, and examples-first. Read that page for the rationale; in practice, follow the Seed and the style guide and you will meet them.
+The template encodes nix.dev's authoring conventions in its Seed, and [Writing a guide][write-a-guide] explains them in full — sentence case, one sentence per line, numbered steps, plain language, one voice, a humane tone, and examples-first. Read that page for the rationale; in practice, follow the Seed and the [documentation style guide][style-guide] and you will meet them.
+
+<!-- REVIEW(consistency): confirm the cross-links to [Writing a guide][write-a-guide] and the deep link [Writing a guide: Pass the automated checks][write-a-guide-checks] are the right anchors/keys to reference from this meta page. -->
 
 ## Filling it in: the workflow
 
@@ -105,7 +136,7 @@ The template encodes nix.dev's authoring conventions in its Seed, and [Writing a
 3. Replace `<component>` throughout the file.
 4. Fill each section following the Seed's rules, not from memory.
 5. Wire the new page into the relevant `toctree` / index.
-6. Run the local build (see [contributor setup][setup] and [Writing a guide: Pass the automated checks][write-a-guide-checks]) and fix every failure before opening your PR.
+6. Run the local build (see the [nix.dev contributor documentation][nix-dev-contributor-guide] and [Writing a guide: Pass the automated checks][write-a-guide-checks]) and fix every failure before opening your PR.
 
 <!-- REVIEW(tone): Step 5 says "wire into the relevant toctree / index" — is that precise enough, or should it name the exact index file contributors must edit? -->
 
