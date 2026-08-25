@@ -17,10 +17,11 @@ This template was created with generative AI (GenAI) assistance. Review and adap
 
 <!-- Seed for a new-user/installation HOW-TO (NixOS). Rewrite/refresh existing
      docs from this skeleton — act on the existing indebted structure, don't
-     invent from scratch. Keep pure Nix package-manager steps out: link to the
-     PM guides/tutorials instead of documenting them here (this also keeps one
-     voice and avoids duplicated, drifting instructions). Replace <component>
-     throughout. Headings in sentence case; one sentence per line.
+     invent from scratch. Do NOT document Nix package-manager (PM) internals:
+     contributors should link out to the PM guides/tutorials instead of writing
+     them here (this keeps one voice and avoids duplicated, drifting
+     instructions). Replace <component> throughout. Headings in sentence case;
+     one sentence per line.
      Use plain language and state the outcome up front (short sentences, no
      jargon; tell the reader what they will have at the end).
      Lead with the minimal working steps — examples first, progressive
@@ -45,55 +46,47 @@ This template was created with generative AI (GenAI) assistance. Review and adap
       For full authoring rules see [Writing a guide](./writing-a-guide.md). -->
 <!-- REVIEW(consistency): This seed comment and the body cross-link to ./edit-configuration.md, ./writing-a-guide.md, and the style guide. After the restructure (guide contributor files moved into guides/, titles aligned to filenames, link labels normalised to page titles), verify each cross-reference target still exists and that its link label matches the target page title. -->
 
-This guide shows how to install and verify <component> on your system.
+This guide shows how to install and verify <component> on your NixOS system.
 When you finish, <component> will be installed and ready to use.
 For background on why this matters, see the [relevant tutorial][tutorial].
 
 ## Prerequisites
 
-State what the reader must already have before starting.
-For example, list the supported operating systems and any required accounts.
+You need a few things in place before you start:
 
-If the Nix package manager itself is not installed, link to the [install Nix guide][nix-install] rather than documenting the daemon install here.
+- A machine that can run NixOS (most commodity PCs do).
+- NixOS installation media (a USB drive or ISO) prepared and ready to boot from.
+- The ability to boot that machine from the installation media.
+- Internet access, so the installer can download what it needs.
+- Optionally, an existing `configuration.nix` you want to adapt.
 
-```shell-session
-# Confirm Nix is installed and on a supported system
-$ nix --version
-```
+You are ready to begin once you have booted into the NixOS live environment, or have your existing `configuration.nix` open to edit.
 
 ## Install <component>
 
-<!-- REVIEW(scope): The Linux and macOS tab-items below both show the identical `nix-env -iA nixpkgs.<component>` command. Confirm whether the steps genuinely differ per OS; if they don't, the tab-set is misleading and should collapse to a single block, or the macOS path should show its real divergence. -->
+<!-- REVIEW(scope): The Install section leads newcomers with environment.systemPackages + nixos-rebuild switch (the canonical declarative NixOS path). Confirm this is the right gentle on-ramp for new users, or whether nix profile install (simpler, no rebuild) is the better "feet wet" first step before introducing declarative config. -->
 
-Use a `tab-set` when the steps differ per operating system.
-Describe what each command does before showing it.
+On NixOS you declare what you want in `configuration.nix`, then apply it.
+`configuration.nix` is your system's description: it lists the packages and settings NixOS should build.
+You do not install packages by hand — you add them to the description and let `nixos-rebuild switch` build and activate the new system for you.
 
-For NixOS, install the system via the installer ISO / `nixos-rebuild`, not `nix-env`.
-Reserve `nix-env -iA` (below) for the pure-Nix package-manager path and link to PM guides instead of expanding it here.
+Add <component> to the `environment.systemPackages` list in your `configuration.nix`:
 
-:::::{tab-set}
-
-::::{tab-item} Linux
-
-Install <component> with your package manager.
-
-```shell-session
-$ nix-env -iA nixpkgs.<component>
+```nix
+environment.systemPackages = [ pkgs.<component> ];
 ```
 
-::::
-
-::::{tab-item} macOS
-
-Install <component> on macOS with the same derivation.
+Then apply the change:
 
 ```shell-session
-$ nix-env -iA nixpkgs.<component>
+$ sudo nixos-rebuild switch
+building the system...
+activating the configuration...
+setting up /etc...
+reloading systemd...
 ```
 
-::::
-
-:::::
+The rebuild ends without errors once <component> is part of your system.
 
 ## Configure <component>
 
@@ -110,8 +103,10 @@ Replace `example` with the actual option name for your setup.
 
 ## Verify the installation
 
-Confirm the install succeeded so readers can catch mistakes early.
-Show the expected output of the check command.
+After `nixos-rebuild switch` finishes, confirm the change actually took effect.
+A successful rebuild that ends without errors means <component> is now part of your system.
+
+Open a new terminal and run the component to confirm it works:
 
 ```shell-session
 $ <component> --version
@@ -129,11 +124,11 @@ Open a new terminal first if the command is not found, so shell caches are refre
 List the most common failure and its fix.
 Use a `dropdown` for deeper detail that would distract from the main flow.
 
-If `<component>` is not found, make sure your `PATH` includes the Nix profile.
+If `<component>` is not found after the rebuild, open a new terminal so your `PATH` picks up the newly installed package, and confirm `nixos-rebuild switch` completed without errors.
 
 :::{dropdown} Why this happens
 
-Nix installs packages into a profile directory that must be on `PATH`.
+NixOS adds system packages to your `PATH` when the configuration is activated, so a stale terminal session may not see the new command until you reopen it.
 :::
 
 ## Next steps
@@ -154,7 +149,6 @@ Prefer [permanent links](https://en.wikipedia.org/wiki/Permalink) (a specific co
 
 <!-- Replace the <component> placeholders and point [tutorial] at the specific
      component tutorial. Use permalinks (commits/tags) when citing source code. -->
-[nix-install]: https://nix.dev/install-nix
 [tutorial]: https://nix.dev/tutorials
 [nix-manual]: https://nix.dev/manual/nix/stable/
 [nixpkgs-manual]: https://nixos.org/manual/nixpkgs/stable/

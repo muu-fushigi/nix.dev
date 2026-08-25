@@ -81,15 +81,15 @@ It then links to the relevant [tutorial][tutorial] for background rather than re
 
 ## Prerequisites
 
-The template's `## Prerequisites` section tells the reader what they must already have (supported OS, required accounts). Critically, **it does not document the Nix daemon install** — if Nix itself is not installed, the template links to the [install Nix guide][nix-install] instead of repeating those steps. Keep that rule: pure-Nix package-manager setup stays in the PM guides.
+The template's `## Prerequisites` section tells the reader what they must already have before starting: a machine that can run NixOS, NixOS installation media (USB or ISO) prepared and ready to boot, the ability to boot from it, internet access for downloads, and optionally an existing `configuration.nix` to adapt. It does not document how to install NixOS itself — that belongs in the installation guides — so pure-Nix package-manager setup stays out of the template.
 
 ## Install `<component>`
 
-The template's `## Install <component>` section uses a `tab-set` when the steps differ per operating system. For NixOS, install via the installer ISO / `nixos-rebuild`, not `nix-env`. The template reserves the pure-Nix `nix-env -iA nixpkgs.<component>` path for the package-manager path and points readers to the PM guides rather than expanding it inline.
+The template's `## Install <component>` section shows the NixOS install path: add `<component>` to `environment.systemPackages` in your `configuration.nix`, then run `sudo nixos-rebuild switch` to apply the change. It does not use `nix-env` or document package-manager internals — those stay in the PM guides.
 
 <!-- REVIEW(accuracy): the template uses a tab-set for Linux/macOS with identical nix-env commands; confirm the OS-specific guidance is what contributors should expect, and that NixOS is intentionally handled separately. -->
 
-The `<component>` placeholder appears in the heading and in the derivation name `nixpkgs.<component>`, so replacing it propagates to both.
+The `<component>` placeholder appears in the heading, in the `environment.systemPackages` list as `pkgs.<component>`, and in the verify command, so replacing it propagates to each.
 
 ## Configure `<component>`
 
