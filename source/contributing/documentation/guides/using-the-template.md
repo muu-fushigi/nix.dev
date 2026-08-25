@@ -11,7 +11,7 @@ This template was created with generative AI (GenAI) assistance. Review and adap
 
 <!-- REVIEW(tone): the AI-generated note at the top — is this label right for a meta page about the template, or should it be removed/shortened since it describes the template rather than a derived guide? -->
 
-<!-- REVIEW(consistency): HUMAN UPDATE: aligned all GenAI notes to the one used in guide-template.md; this is due to it being more descriptive for newer contributors and removes ambiguity. -->
+
 
 (using-the-template)=
 
@@ -89,7 +89,7 @@ The template's `## Prerequisites` section tells the reader what they must alread
 
 The template's `## Install <component>` section shows the NixOS install path: add `<component>` to `environment.systemPackages` in your `configuration.nix`, then run `sudo nixos-rebuild switch` to apply the change. It does not use `nix-env` or document package-manager internals — those stay in the PM guides.
 
-<!-- REVIEW(accuracy): the template uses a tab-set for Linux/macOS with identical nix-env commands; confirm the OS-specific guidance is what contributors should expect, and that NixOS is intentionally handled separately. -->
+
 
 The `<component>` placeholder appears in the heading, in the `environment.systemPackages` list as `pkgs.<component>`, and in the verify command, so replacing it propagates to each.
 

@@ -9,10 +9,6 @@ myst:
 This template was created with generative AI (GenAI) assistance. Review and adapt it before publishing, and remove or replace this note in any guide you derive from it if you did not use GenAI to write that guide.
 :::
 
-<!-- REVIEW(consistency): The GenAI disclosure here ("AI-generated content. This page was authored with AI assistance") differs from guide-template.md ("created with generative AI (GenAI) assistance ... remove or replace this note ... if you did not use GenAI"). Align the disclosure phrasing across all three guide docs so contributors see one canonical note. -->
-
-<!-- REVIEW(consistency): HUMAN UPDATE: aligned all GenAI notes to the one used in guide-template.md; this is due to it being more descriptive for newer contributors and removes ambiguity. -->
-
 (writing-a-guide)=
 
 # Writing a guide
