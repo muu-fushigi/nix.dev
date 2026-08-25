@@ -11,6 +11,8 @@ This template was created with generative AI (GenAI) assistance. Review and adap
 
 <!-- REVIEW(consistency): The GenAI disclosure wording here ("created with generative AI (GenAI) assistance ... remove or replace this note ... if you did not use GenAI") differs from writing-a-guide.md ("AI-generated content. This page was authored with AI assistance"). Align the disclosure phrasing across all three guide docs so contributors see one canonical note. -->
 
+<!-- REVIEW(consistency): HUMAN UPDATE: aligned all GenAI notes to the one used in guide-template.md; this is due to it being more descriptive for newer contributors and removes ambiguity. -->
+
 (guide-template)=
 
 # Guide template

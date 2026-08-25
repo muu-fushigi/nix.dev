@@ -6,10 +6,12 @@ myst:
 ---
 
 :::{note}
-AI-generated companion page. This page was authored with AI assistance; review and adapt it before publishing.
+This template was created with generative AI (GenAI) assistance. Review and adapt it before publishing, and remove or replace this note in any guide you derive from it if you did not use GenAI to write that guide.
 :::
 
 <!-- REVIEW(tone): the AI-generated note at the top — is this label right for a meta page about the template, or should it be removed/shortened since it describes the template rather than a derived guide? -->
+
+<!-- REVIEW(consistency): HUMAN UPDATE: aligned all GenAI notes to the one used in guide-template.md; this is due to it being more descriptive for newer contributors and removes ambiguity. -->
 
 (using-the-template)=
 
