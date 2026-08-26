@@ -42,7 +42,11 @@ This template was created with generative AI (GenAI) assistance. Review and adap
      run in order. This page is a how-to GUIDE (goal-oriented,
      sequenced actions, just-in-time explanation), not a tutorial — keep it that way.
       For full authoring rules see [Writing a guide](./writing-a-guide.md). -->
-<!-- REVIEW(consistency): This seed comment and the body cross-link to ./edit-configuration.md, ./writing-a-guide.md, and the style guide. After the restructure (guide contributor files moved into guides/, titles aligned to filenames, link labels normalised to page titles), verify each cross-reference target still exists and that its link label matches the target page title. -->
+<!-- REVIEW(consistency): cross-reference resolution
+- [ ] confirm ./edit-configuration.md, ./writing-a-guide.md, and the style guide exist in the repo
+- [ ] confirm each cross-link's label equals the target page's title
+- [ ] if any target is missing or a label drifts from its page title, update the link text or path so every reference resolves
+-->
 
 This guide shows how to install and verify <component> on your NixOS system.
 When you finish, <component> will be installed and ready to use.
@@ -62,7 +66,11 @@ You are ready to begin once you have booted into the NixOS live environment, or 
 
 ## Install <component>
 
-<!-- REVIEW(scope): The Install section leads newcomers with environment.systemPackages + nixos-rebuild switch (the canonical declarative NixOS path). Confirm this is the right gentle on-ramp for new users, or whether nix profile install (simpler, no rebuild) is the better "feet wet" first step before introducing declarative config. -->
+<!-- REVIEW(scope): Install on-ramp gentleness
+- [ ] identify whether the Install section leads with environment.systemPackages + nixos-rebuild switch
+- [ ] judge whether `nix profile install` would be a gentler first step for newcomers
+- [ ] if the declarative path is the lead and a profile install is gentler, replace the on-ramp with the profile install and defer declarative config to a later step
+-->
 
 On NixOS you declare what you want in `configuration.nix`, then apply it.
 `configuration.nix` is your system's description: it lists the packages and settings NixOS should build.
@@ -111,7 +119,11 @@ $ <component> --version
 <component> 1.0.0
 ```
 
-<!-- REVIEW(accuracy): The seed comment (lines ~37) instructs contributors to "verify the result rather than just `<component> --version`", but this Verify section only shows `<component> --version` and its expected output. For NixOS declarative guides the verification must check the actual applied result (e.g. service is running / config took effect), not merely the binary version. Reconcile the template body with the seed instruction. -->
+<!-- REVIEW(accuracy): Verify section confirms real effect
+- [ ] check whether the Verify section shows only `<component> --version`
+- [ ] confirm the check confirms the applied configuration took effect (service running / config active)
+- [ ] if only the version string is shown, replace it with a check that matches the Seed instruction
+-->
 
 :::{tip}
 Open a new terminal first if the command is not found, so shell caches are refreshed.

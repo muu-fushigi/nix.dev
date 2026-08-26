@@ -9,7 +9,11 @@ myst:
 This template was created with generative AI (GenAI) assistance. Review and adapt it before publishing, and remove or replace this note in any guide you derive from it if you did not use GenAI to write that guide.
 :::
 
-<!-- REVIEW(tone): the AI-generated note at the top — is this label right for a meta page about the template, or should it be removed/shortened since it describes the template rather than a derived guide? -->
+<!-- REVIEW(tone): top "AI-generated" note scopes to the template
+- [ ] read the top note and decide whether it describes a derived guide or the template/meta page
+- [ ] confirm it clearly applies to the template page itself
+- [ ] if it reads as describing a derived guide, reword or shorten it, or remove it if this page was not GenAI-authored
+-->
 
 
 
@@ -21,7 +25,11 @@ This page is meta-commentary about [Guide template][template]. It installs nothi
 
 Read this page once to learn the shape, then keep [Guide template][template] open beside your editor while you write. For the full authoring rules (Diátaxis, linking, plain language), see [Writing a guide][write-a-guide].
 
-<!-- REVIEW(tone): Confirm the framing here — is "companion" / "annotated tour" the right voice, or should this read as a stricter "required reading before you copy the template"? -->
+<!-- REVIEW(tone): framing sells the page's importance
+- [ ] check whether the "companion" / "annotated tour" framing undersells the page
+- [ ] decide if contributors should treat the page as mandatory
+- [ ] if the framing undersells it, rewrite as "required reading before you copy the template"
+-->
 
 The template stays generic on purpose: every concrete thing a finished guide would name is written as the literal placeholder `<component>`. Do not substitute a real package or command here — this page documents the template, it is not a filled-in example guide, and there is no worked example with real commands.
 
@@ -50,7 +58,11 @@ myst:
 ---
 ```
 
-<!-- REVIEW(scope): the front-matter guidance — should contributors copy the html_meta block verbatim and only swap the description, or also adjust the keywords per component? -->
+<!-- REVIEW(scope): front-matter keyword guidance
+- [ ] check whether the guidance only tells contributors to swap the description
+- [ ] judge whether a component needs distinct keywords
+- [ ] if keywords must differ per component, update the guidance to instruct adjusting keywords per component
+-->
 
 Copy this block into your new guide and swap the `description` to match your component. Keep the `keywords` convention aligned with the other guides. These fields feed search and site previews, so they are required, not optional.
 
@@ -67,7 +79,11 @@ Immediately after the front matter and before the title, the template carries an
 - in `Next steps`, chain to the next sequential guide,
 - cross-check commands against the NixOS Wiki and nixos.org manuals for parity.
 
-<!-- REVIEW(accuracy): Confirm whether a contributor should KEEP the Seed comment in the published guide or strip it. The template ships with it; this page currently tells contributors to "read it while you draft" but does not state the final disposition. -->
+<!-- REVIEW(accuracy): Seed comment retention stated
+- [ ] check whether the page states whether the Seed comment stays in the published guide
+- [ ] confirm the keep-while-drafting vs strip-before-publishing decision is explicit
+- [ ] if unstated, add an instruction to keep the Seed while drafting and strip it before publishing (or keep it, per project decision)
+-->
 
 Read the Seed while you draft. It describes the template's intent; your finished guide should satisfy every rule it lists.
 
@@ -79,7 +95,11 @@ The template's first prose after the title states, in plain language, what the r
 
 It then links to the relevant [tutorial][tutorial] for background rather than re-teaching it. Keep this shape: state the outcome up front, then point to the tutorial for the *why*.
 
-<!-- REVIEW(consistency): confirm the <component> placeholder convention is clear — it is a literal string to replace everywhere, including headings, prose, and code blocks (e.g. `nixpkgs.<component>`). -->
+<!-- REVIEW(consistency): <component> placeholder replacement scope
+- [ ] check whether the page states where `<component>` must be replaced
+- [ ] confirm it lists headings, prose, and code blocks (e.g. pkgs.<component>)
+- [ ] if the convention is unclear, state explicitly that `<component>` is a literal string to replace in those places
+-->
 
 ## Prerequisites
 
@@ -107,7 +127,11 @@ with a note telling the reader to replace `example` with the real option name.
 
 The template's `## Verify the installation` section confirms the install succeeded and shows expected output, using `<component> --version` as the placeholder check.
 
-<!-- REVIEW(accuracy): for NixOS the template says verify the result of nixos-rebuild switch rather than <component> --version; confirm the exact verify approach (rebuild result vs version string) contributors should follow. -->
+<!-- REVIEW(accuracy): NixOS Verify guidance checks the rebuild result
+- [ ] check whether the Verify guidance for NixOS only shows `<component> --version`
+- [ ] confirm it tells contributors to verify the result of `nixos-rebuild switch`
+- [ ] if only the version string is shown, change it to verify the service/config took effect
+-->
 
 For NixOS, the Seed instructs you to verify the *result* of the rebuild, not just a version string. The placeholder lets you decide the right check for your component.
 
@@ -123,13 +147,21 @@ The template's `## Next steps` section points readers to the next guide in the s
 
 The template's `## References` section links to the official sources it cited, using reference-style links defined at the bottom of the file, and prefers [permanent links](https://en.wikipedia.org/wiki/Permalink) (a specific commit or tag) when citing source code. It lists `[Nix manual]`, `[Nixpkgs manual]`, and `[<component> project][component-repo]`.
 
-<!-- REVIEW(accuracy): The template's References section links [component-repo] to github.com/<owner>/<component>. Confirm the exact placeholder shape contributors should expect, and whether a "References" section is always required or optional for short guides. -->
+<!-- REVIEW(accuracy): References placeholder and required status
+- [ ] check whether the exact `[component-repo]` placeholder shape (github.com/<owner>/<component>) is stated
+- [ ] check whether References is required or optional for short guides
+- [ ] if either is missing, specify the placeholder and state the required/optional status
+-->
 
 ## Conventions to keep
 
 The template encodes nix.dev's authoring conventions in its Seed, and [Writing a guide][write-a-guide] explains them in full — sentence case, one sentence per line, numbered steps, plain language, one voice, a humane tone, and examples-first. Read that page for the rationale; in practice, follow the Seed and the [documentation style guide][style-guide] and you will meet them.
 
-<!-- REVIEW(consistency): confirm the cross-links to [Writing a guide][write-a-guide] and the deep link [Writing a guide: Pass the automated checks][write-a-guide-checks] are the right anchors/keys to reference from this meta page. -->
+<!-- REVIEW(consistency): cross-link keys and anchors resolve
+- [ ] verify `[Writing a guide][write-a-guide]` and `[write-a-guide-checks]` use correct link keys
+- [ ] verify the deep-link anchor targets the intended heading on writing-a-guide.md
+- [ ] if a key or anchor is wrong, correct it so the links resolve
+-->
 
 ## Filling it in: the workflow
 
@@ -140,7 +172,11 @@ The template encodes nix.dev's authoring conventions in its Seed, and [Writing a
 5. Wire the new page into the relevant `toctree` / index.
 6. Run the local build (see the [nix.dev contributor documentation][nix-dev-contributor-guide] and [Writing a guide: Pass the automated checks][write-a-guide-checks]) and fix every failure before opening your PR.
 
-<!-- REVIEW(tone): Step 5 says "wire into the relevant toctree / index" — is that precise enough, or should it name the exact index file contributors must edit? -->
+<!-- REVIEW(tone): Step 5 toctree instruction is actionable
+- [ ] read Step 5's "wire into the relevant toctree / index" instruction
+- [ ] judge whether it is concrete enough to act on
+- [ ] if too vague, name the exact index/toctree file contributors must edit to add the new page
+-->
 
 ## Automated checks you must pass
 
